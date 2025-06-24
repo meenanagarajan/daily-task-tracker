@@ -1,38 +1,294 @@
-.App {
+/* src/App.css */
+.app-container {
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.main-container {
+  max-width: 672px; /* Equivalent to Tailwind's max-w-2xl */
+  margin: 0 auto;
+  padding: 16px; /* Equivalent to p-4 */
+}
+
+.header {
+  margin-bottom: 16px; /* mb-4 */
+}
+
+.icon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px; /* mb-2 */
+}
+
+.icon-group {
+  display: flex;
+  gap: 16px; /* space-x-4 */
+}
+
+.icon {
+  font-size: 24px; /* text-2xl */
+}
+
+.date {
+  font-size: 14px; /* text-sm */
+}
+
+.greeting {
+  font-size: 30px; /* text-3xl */
+  font-weight: bold;
+}
+
+.streak-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px; /* mb-4 */
+}
+
+.streak-button {
+  padding: 8px 16px; /* px-4 py-2 */
+  border-radius: 9999px; /* rounded-full */
+  color: white;
+  font-weight: 600; /* font-semibold */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.streak-info {
+  font-size: 12px; /* text-xs */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.modal-content {
+  background-color: white;
+  padding: 24px; /* p-6 */
+  border-radius: 8px; /* rounded-lg */
+  max-width: 448px; /* max-w-md */
+  width: 100%;
+}
+
+.modal-title {
+  font-size: 20px; /* text-xl */
+  font-weight: bold;
+  margin-bottom: 16px; /* mb-4 */
+}
+
+.streak-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0; /* py-2 */
+}
+
+.flame-icon {
+  color: orange;
+  margin-left: 8px; /* ml-2 */
+  font-size: 12px; /* text-xs */
+}
+
+.completed {
+  color: green;
+}
+
+.modal-close-button {
+  margin-top: 16px; /* mt-4 */
+  padding: 8px 16px; /* px-4 py-2 */
+  background-color: #e5e7eb; /* bg-gray-200 */
+  border-radius: 4px; /* rounded */
+  cursor: pointer;
+}
+
+.day-selector-container {
+  margin-bottom: 16px; /* mb-4 */
+  overflow-x: auto; /* horizontal scroll if content overflows */
+  overflow-y: hidden; /* no vertical scroll */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  border-radius: 8px; /* rounded-lg */
+}
+
+
+.day-scroll {
+  overflow-x: auto;
+  padding: 8px 0; /* py-2 */
+}
+
+.day-list {
+  display: flex;
+  gap: 8px; /* space-x-2 */
+  padding: 0 16px; /* px-4 */
+}
+
+.day-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius: 8px; /* rounded-lg */
+  padding: 8px; /* p-2 */
+  cursor: pointer;
+}
+
+.day-item.selected {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.day-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.day-label {
+  font-size: 12px; /* text-xs */
+}
+
+.day-number {
+  font-size: 12px; /* text-xs */
+}
+
+.day-number.current {
+  font-size: 14px; /* text-sm */
+}
+
+.focus-card {
+  padding: 16px; /* p-4 */
+  background-color: white;
+  border-radius: 8px; /* rounded-lg */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+  margin: 16px; /* mx-4 mt-4 */
+}
+
+.focus-label {
+  font-size: 14px; /* text-sm */
+}
+
+.tasks-card {
+  padding: 16px; /* p-4 */
+  background-color: white;
+  border-radius: 8px; /* rounded-lg */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+  margin: 16px; /* mx-4 mt-4 */
+  margin-bottom: 24px; /* mb-2, small bottom margin as requested */
+}
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.tasks-label {
+  font-size: 14px; /* text-sm */
+}
+
+.tasks-completed {
+  color: green;
+  margin-left: 8px; /* ml-2 */
+}
+
+.chevron {
+  font-size: 14px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 12px; /* p-3 */
+  border-radius: 8px; /* rounded-lg */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+  margin: 4px 8px; /* mx-2 my-1 */
+  cursor: pointer;
+}
+
+.task-item.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.task-status {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px; /* mr-3 */
+}
+
+.checkmark {
+  color: green;
+  font-size: 24px;
+}
+
+.lock {
+  font-size: 24px;
+}
+
+.task-indicator {
+  width: 24px;
+  height: 24px;
+  border: 2px solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.animate-pulse {
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.task-icon {
+  font-size: 20px; /* text-lg */
+  margin-right: 12px; /* mr-3 */
+}
+
+.task-details {
+  flex-grow: 1;
+}
+
+.task-duration {
+  font-size: 12px; /* text-xs */
+}
+
+.task-connector {
+  height: 16px; /* h-4 */
+  display: flex;
+  justify-content: center;
+}
+
+.connector-line {
+  width: 2px; /* w-0.5 */
+  height: 100%;
+  background-size: 100% 8px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px; /* text-lg */
+  color: #666; /* text-gray-500 */
+  margin-top: 16px; /* mt-4 */
 }
