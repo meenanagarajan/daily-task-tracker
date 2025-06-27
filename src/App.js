@@ -186,7 +186,8 @@ function App({ username = 'User', onChangeUsername }) {
       }
     }
   }, [days.length]);
-
+  const selectedDayData = days.find((d) => d.dayNumber === selectedDay);
+  const tasks = selectedDayData?.activities || [];  
   return (
     <div className="app-container" style={{ backgroundColor: configuration.lightBlue }}>
       {days.length === 0 ? (
@@ -374,21 +375,23 @@ function App({ username = 'User', onChangeUsername }) {
                                   </div>
                                 </div>
                               </div>
-                              {index < days.find((d) => d.dayNumber === selectedDay).activities.length - 1 && (() => {
-                                const selected = days.find((d) => d.dayNumber === selectedDay);
-                                const nextTask = selected.activities[index + 1];
-                                const shouldShowConnector = task.completed && nextTask.completed;
+                              {index < tasks.length - 1 && (() => {
+                                const nextTask = tasks[index + 1];
+                                const allTasksCompleted = tasks.every(t => t.completed);
+                                const taskCompleted = task.completed;
 
-                                return shouldShowConnector ? (
+                                let connectorClass = 'connector-line connector-default';
+                                if (allTasksCompleted) {
+                                  connectorClass = 'connector-line connector-complete';
+                                } else if (taskCompleted) {
+                                  connectorClass = 'connector-line connector-active';
+                                }
+
+                                return (
                                   <div className="task-connector">
-                                    <div
-                                      className="connector-line"
-                                      style={{
-                                        backgroundColor: configuration.accentColor,
-                                      }}
-                                    ></div>
+                                    <div className={connectorClass}></div>
                                   </div>
-                                ) : null;
+                                );
                               })()}
                             </div>
                           );

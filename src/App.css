@@ -281,10 +281,20 @@
 }
 
 .connector-line {
-  width: 2px; /* w-0.5 */
-  height: 100%;
-  background-size: 100% 8px;
+  height: 16px;
+  width: 2px;
+  margin: 0 auto;
 }
+.connector-default {
+  border-left: 2px dotted rgb(191, 219, 254);
+}
+.connector-active {
+  border-left: 2px dotted rgb(30, 58, 138); /* accentColor */
+}
+.connector-complete {
+  border-left: 2px solid rgb(30, 58, 138);
+}
+
 
 .loading {
   text-align: center;
