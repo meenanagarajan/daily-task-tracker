@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/daily-task-tracker/static/css/main.aa8c3da6.css",
-    "main.js": "/daily-task-tracker/static/js/main.218b6f2d.js",
+    "main.css": "/daily-task-tracker/static/css/main.cd11d3b4.css",
+    "main.js": "/daily-task-tracker/static/js/main.f6a53dcb.js",
     "static/js/453.4fcb8d32.chunk.js": "/daily-task-tracker/static/js/453.4fcb8d32.chunk.js",
     "index.html": "/daily-task-tracker/index.html",
-    "main.aa8c3da6.css.map": "/daily-task-tracker/static/css/main.aa8c3da6.css.map",
-    "main.218b6f2d.js.map": "/daily-task-tracker/static/js/main.218b6f2d.js.map",
+    "main.cd11d3b4.css.map": "/daily-task-tracker/static/css/main.cd11d3b4.css.map",
+    "main.f6a53dcb.js.map": "/daily-task-tracker/static/js/main.f6a53dcb.js.map",
     "453.4fcb8d32.chunk.js.map": "/daily-task-tracker/static/js/453.4fcb8d32.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa8c3da6.css",
-    "static/js/main.218b6f2d.js"
+    "static/css/main.cd11d3b4.css",
+    "static/js/main.f6a53dcb.js"
   ]
 }
